@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -34,3 +34,634 @@
   }
 
   /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: rgba(10,16,32,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* SECTIONS */
+  section { padding: 120px 60px; max-width: 1200px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 120px;
+    max-width: 100%;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .hero-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.2s;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 96px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    max-width: 14ch;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.35s;
+  }
+  .hero-title {
+    margin-top: 28px;
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-weight: 300;
+    color: var(--muted);
+    max-width: 52ch;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+  .hero-title span { color: var(--text); font-weight: 400; }
+  .hero-cta {
+    margin-top: 48px;
+    display: flex; gap: 16px; align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.65s;
+  }
+  .btn-primary {
+    text-decoration: none;
+    background: var(--accent);
+    color: #0A1020;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--muted);
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: var(--text); }
+  .hero-scroll {
+    position: absolute;
+    bottom: 48px;
+    left: 60px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.9s;
+  }
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--muted);
+  }
+  #hero { position: relative; }
+
+  /* SECTION HEADER */
+  .section-header { margin-bottom: 64px; }
+  .section-num {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    line-height: 1.1;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--bg); padding-top: 140px; }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .project-card {
+    background: var(--bg);
+    padding: 40px;
+    transition: background 0.2s;
+    cursor: default;
+  }
+  .project-card:hover { background: var(--bg2); }
+  .project-tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .project-name {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+  .project-stack {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .stack-item {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--bg3);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+  .project-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .project-link:hover { border-color: var(--accent); }
+
+  /* ABOUT */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .about-left .section-header { margin-bottom: 32px; }
+  .about-bio {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .about-bio strong { color: var(--text); font-weight: 400; }
+  .about-right { padding-top: 80px; }
+  .skills-group { margin-bottom: 40px; }
+  .skills-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .skills-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .skills-list li {
+    font-size: 14px;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .skills-list li::before {
+    content: '';
+    display: block;
+    width: 16px; height: 1px;
+    background: var(--bg3);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    max-width: 100%;
+    padding: 120px 60px;
+  }
+  .contact-inner { max-width: 1200px; margin: 0 auto; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: start;
+  }
+  .contact-intro {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-top: 24px;
+  }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 20px; }
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+  .form-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-input, .form-textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-textarea:focus {
+    border-color: rgba(93,220,178,0.4);
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+  .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+  .form-submit {
+    background: var(--accent);
+    color: #0A1020;
+    border: none;
+    padding: 15px 28px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    border-radius: var(--radius);
+    cursor: pointer;
+    align-self: flex-start;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .form-success {
+    display: none;
+    padding: 14px 18px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(93,220,178,0.25);
+    border-radius: var(--radius);
+    font-size: 13px;
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    max-width: 100%;
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-label, .hero-name, .hero-title, .hero-cta, .hero-scroll {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 18px 28px; }
+    .nav-links { gap: 24px; }
+    section { padding: 80px 28px; }
+    #hero { padding: 100px 28px 80px; min-height: auto; }
+    #about { grid-template-columns: 1fr; gap: 48px; }
+    .about-right { padding-top: 0; }
+    #contact { padding: 80px 28px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    footer { padding: 28px; flex-direction: column; gap: 16px; text-align: center; }
+    .hero-scroll { display: none; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">B.</div>
+  <ul class="nav-links">
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-label">Freelance Web Developer</div>
+  <h1 class="hero-name">Bhupal</h1>
+  <p class="hero-title">
+    I build <span>fast, purposeful web products</span> — from interactive front-ends to full-stack applications that work beautifully across every screen.
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn-primary">View my work</a>
+    <a href="#contact" class="btn-ghost">Get in touch</a>
+  </div>
+  <div class="hero-scroll">Scroll to explore</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <div class="section-num">01 — Selected work</div>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-tag">Fintech</div>
+      <div class="project-name">GigSaakh — Trust & Lending Platform</div>
+      <p class="project-desc">Mobile-first app for India's gig economy. Behavioural trust scoring and micro-lender matching for workers outside the formal credit system.</p>
+      <div class="project-stack">
+        <span class="stack-item">React Native</span>
+        <span class="stack-item">Node.js</span>
+        <span class="stack-item">PostgreSQL</span>
+        <span class="stack-item">AWS</span>
+      </div>
+      <a href="#" class="project-link">Case study ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Hyperlocal Marketplace</div>
+      <div class="project-name">Lokally — Premium Services Platform</div>
+      <p class="project-desc">B2C and B2B hyperlocal marketplace connecting Indian households with vetted service providers. Supports real-time booking and multi-vendor payouts.</p>
+      <div class="project-stack">
+        <span class="stack-item">Next.js</span>
+        <span class="stack-item">React</span>
+        <span class="stack-item">Supabase</span>
+        <span class="stack-item">Razorpay</span>
+      </div>
+      <a href="#" class="project-link">Case study ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Business Website</div>
+      <div class="project-name">R K Convention — Event Venue</div>
+      <p class="project-desc">Professional web presence for a full-service AC convention hall in Vijayawada. Enquiry management, gallery, and capacity booking flow.</p>
+      <div class="project-stack">
+        <span class="stack-item">HTML / CSS</span>
+        <span class="stack-item">JavaScript</span>
+        <span class="stack-item">Netlify</span>
+      </div>
+      <a href="#" class="project-link">View site ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Add your project</div>
+      <div class="project-name">Your next project here</div>
+      <p class="project-desc">This slot is ready for your next build. Update the content, stack, and link to showcase your work.</p>
+      <div class="project-stack">
+        <span class="stack-item">Your stack</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left">
+    <div class="section-header">
+      <div class="section-num">02 — Background</div>
+      <h2 class="section-title">About me</h2>
+    </div>
+    <p class="about-bio">
+      I'm a freelance developer based in <strong>Vijayawada, Andhra Pradesh</strong>, focused on building digital products for Indian markets — from fintech and hyperlocal services to the growing gig economy.
+    </p>
+    <p class="about-bio">
+      I work as a <strong>full-stack developer and product owner</strong>, which means I don't just write the code — I shape the architecture, make the design decisions, and drive builds from brief to launch.
+    </p>
+    <p class="about-bio">
+      I care about software that's <strong>fast, purposeful, and built for real users</strong>. If you have a product idea, let's talk.
+    </p>
+  </div>
+  <div class="about-right">
+    <div class="skills-group">
+      <div class="skills-label">Frontend</div>
+      <ul class="skills-list">
+        <li>React &amp; Next.js</li>
+        <li>React Native</li>
+        <li>TypeScript</li>
+        <li>Tailwind CSS</li>
+      </ul>
+    </div>
+    <div class="skills-group">
+      <div class="skills-label">Backend</div>
+      <ul class="skills-list">
+        <li>Node.js &amp; Express</li>
+        <li>PostgreSQL &amp; Supabase</li>
+        <li>REST &amp; GraphQL APIs</li>
+        <li>AWS &amp; Netlify</li>
+      </ul>
+    </div>
+    <div class="skills-group">
+      <div class="skills-label">Integrations</div>
+      <ul class="skills-list">
+        <li>Razorpay &amp; UPI</li>
+        <li>WhatsApp Business API</li>
+        <li>Firebase</li>
+        <li>Google Maps Platform</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="section-header">
+          <div class="section-num">03 — Let's build</div>
+          <h2 class="section-title">Get in touch</h2>
+        </div>
+        <p class="contact-intro">
+          Available for freelance projects — new products, feature work, or full builds. I respond to every message.
+        </p>
+      </div>
+      <div>
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" type="text" placeholder="Your name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell me about your project…"></textarea>
+          </div>
+          <div id="formError" style="display:none;font-size:12px;color:#f87171;margin-top:-8px;"></div>
+          <div id="formSuccess" class="form-success">Message sent — I'll be in touch soon.</div>
+          <button type="submit" class="form-submit" id="formBtn">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Bhupal</span>
+  <div class="footer-links">
+    <a href="#">GitHub</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Twitter</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const errEl = document.getElementById('formError');
+    const successEl = document.getElementById('formSuccess');
+    const btn = document.getElementById('formBtn');
+
+    errEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    if (!name || !email || !message) {
+      errEl.textContent = 'Please fill in all fields.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://formspree.io/f/meaopbzr', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(this)
+      });
+
+      if (res.ok) {
+        successEl.style.display = 'block';
+        this.reset();
+      } else {
+        const data = await res.json();
+        errEl.textContent = data.errors ? data.errors.map(e => e.message).join(', ') : 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+      }
+    } catch {
+      errEl.textContent = 'Network error — please check your connection and try again.';
+      errEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
+  });
+</script>
+</body>
+ </html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhupal — Freelance Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A1020;
+    --bg2: #111928;
+    --bg3: #1A2540;
+    --text: #E8EEF8;
+    --muted: #6B7A99;
+    --accent: #5DDCB2;
+    --accent-dim: rgba(93,220,178,0.10);
+    --border: rgba(255,255,255,0.07);
+    --radius: 3px;
+    font-size: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+<section id="contact"><h2>Contact Me</h2><form action="[https://formspree.io/f/meaopbzr](https://formspree.io/f/meaopbzr)" method="POST"><label>Your Name:<input type="text" name="name" required></label><label>Your Email:<input type="email" name="email" required></label><label>Your Message:<textarea name="message" required></textarea></label><button type="submit">Send</button></form></section>
